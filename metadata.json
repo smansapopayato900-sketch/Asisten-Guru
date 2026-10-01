@@ -1,0 +1,6 @@
+{
+  "name": "Asisten Komunikasi Guru & Orang Tua",
+  "description": "Generator Pesan dan Laporan Perkembangan Siswa untuk Guru SMA/SMK Indonesia",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
