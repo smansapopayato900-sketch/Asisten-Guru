@@ -31,7 +31,7 @@ import {
   ProgressFormData,
   FullReportSection
 } from './types';
-import { Lock, LogOut, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 
 export default function App() {
   // 1. Auth & status
@@ -248,9 +248,9 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 text-slate-800">
+    <div className="app-ambient min-h-screen flex flex-col text-slate-800 lg:pl-74 print:pl-0">
       
-      {/* Top Header Navbar */}
+      {/* Sidebar kiri (kaca) */}
       <Header
         activeTab={activeTab}
         setActiveTab={(tab) => {
@@ -269,6 +269,9 @@ export default function App() {
         isLocked={isLocked}
         teacherName={teacherProfile.namaGuru}
         schoolName={teacherProfile.namaSekolah}
+        userEmail={session.user.email ?? undefined}
+        onLock={() => setIsLocked(true)}
+        onSignOut={handleSignOut}
       />
 
       {/* Main App Body */}
@@ -279,29 +282,6 @@ export default function App() {
             {saveError}
           </div>
         )}
-
-        {/* Akun, kunci layar & keluar */}
-        <div className="no-print flex justify-end items-center gap-2 mb-3">
-          <span className="mr-auto hidden sm:inline text-xs text-slate-400 truncate">{session.user.email}</span>
-          {pin && (
-            <button
-              onClick={() => setIsLocked(true)}
-              className="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1.5 px-2.5 py-1 bg-white border border-slate-200 rounded-md shadow-2xs transition-colors cursor-pointer"
-              title="Kunci layar privasi sekarang"
-            >
-              <Lock className="w-3 h-3 text-slate-400" />
-              Kunci Layar Guru
-            </button>
-          )}
-          <button
-            onClick={handleSignOut}
-            className="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1.5 px-2.5 py-1 bg-white border border-slate-200 rounded-md shadow-2xs transition-colors cursor-pointer"
-            title="Keluar dari akun"
-          >
-            <LogOut className="w-3 h-3 text-slate-400" />
-            Keluar
-          </button>
-        </div>
 
         {/* Views */}
         {activeTab === 'dashboard' && (

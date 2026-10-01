@@ -6,6 +6,40 @@
   }
 }
 
+/* Latar pastel lembut agar efek kaca (blur) terlihat */
+.app-ambient {
+  background-color: #f1f5f9;
+  background-image:
+    radial-gradient(60rem 40rem at 8% -5%, rgba(153, 246, 228, 0.55), transparent 60%),
+    radial-gradient(50rem 40rem at 95% 15%, rgba(186, 230, 253, 0.65), transparent 60%),
+    radial-gradient(55rem 45rem at 60% 105%, rgba(221, 214, 254, 0.55), transparent 60%);
+  background-attachment: fixed;
+}
+
+/* Efek kaca ala iOS */
+.glass {
+  background: rgba(255, 255, 255, 0.55);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow:
+    0 12px 40px rgba(15, 23, 42, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+}
+.glass-active {
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow:
+    0 1px 4px rgba(15, 23, 42, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: rgba(255, 255, 255, 0.96);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
 @media print {
   body {
     background-color: #ffffff !important;
